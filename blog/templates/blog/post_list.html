@@ -1,19 +1,15 @@
-<html>
-    <head>
-        <title>Blog Django</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Blog Django</a></h1>
-        </div>
-
+{% extends 'blog/base.html' %}
+{% block content %}
+    <div class="container-fluid cards">
         {% for post in posts %}
-        <div>
-            <p>published: {{post.published_date}}</p>
-            <h2><a href="">{{post.title}}</a></h2>
-            <p>{{post.text}}</p>
-        </div>
+            <div class="card div">
+                <div class="card-body">
+                <h5 class="card-title"><a href="{% url "post_detail" post.id %}">{{post.title}}</a></h5>
+                <p class="card-text">published: {{post.published_date}}</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
         {% endfor %}
-
-    </body>
-</html>
+    </div> 
+{% endblock%}       
